@@ -36,7 +36,7 @@ Everything that you use in R has a name: variables (including datasets), functio
 
 **Some Notes**:
 
-- '#' is the _________ (EXERCISE) sign. It tells R that everything that follows is a comment and R should ignore it. Comments are there to help explain parts of the code that need additional documentation. We will overuse them initially, but reduce this as the course proceeds.
+- '#' is the comment (EXERCISE) sign. It tells R that everything that follows is a comment and R should ignore it. Comments are there to help explain parts of the code that need additional documentation. We will overuse them initially, but reduce this as the course proceeds.
 - c, "c", and "C" are not the same things
 - Naming conventions: When you name variables and functions, you should use snake case.
 
@@ -44,18 +44,29 @@ Everything that you use in R has a name: variables (including datasets), functio
 
 ```{r, exercise1, eval=FALSE}
 3         # -> 3
-7 %% 3    # -> ?
-False     # -> ?
-'pi'      # -> ?
-FALSE     # -> ?
+7 %% 3    # -> 1
+False     # -> Error: object 'False' not found.
+'pi'      # -> "pi"
+FALSE     # -> FALSE
 ```
 
 **Exercise:** Look up what 'snake case' is and add your answer here.
+Use underline to connect the words, for example, first_name
 
 **Exercise:** What types of names are allowed in R? Look it up and write your answer here as you understand it. Then provide 3 examples of things that are not valid names in R for different reasons. 
 
-#### Everything is an object
+1.it contains letters, numbers, underline and point.
+2.it can not start with numbers and underline
+3.it can not start with a point followed by numbers
+4.Some names are forbidden. These include reserved words like FALSE and TRUE, core programming words like Inf, for, else, break, function, and words for special entities like NA and NaN.
+5.Some names we should not use which are already in use for objects or functions that form part of the core of R.
+6.Do not use spaces when naming things, including variables in your data.
 
+Not valid names for example,
+123celia; 123 coding; FALSE
+
+
+#### Everything is an object
 There are built-in objects and objects you import or create. Most importantly, you assign values to objects you create with the '<-' operator: a '<' ('less than') followed by a '-' ('minus' or 'dash').
 
 ```{r, assignment, eval=FALSE}
@@ -90,7 +101,7 @@ list_of_programming_languages <- c(
 "Scratch"
 )
 
-languages_heard_of <- c(11)
+languages_heard_of <- c(5)
 ```
 
 #### You do things using functions
@@ -111,6 +122,8 @@ When we *call* it, we put parentheses at the end, and we tell it what to perform
 ```
 
 **Exercise:** What happens if you call the function $mean$ without any arguments, i.e. $mean()$?
+
+Error in mean.default() : argument "x" is missing, with no default
 
 #### Functions come in packages
 
@@ -142,6 +155,13 @@ For built-in functions, you can also ask for help or bring up the documentation 
 ```
 
 **Exercise:** What do 'class()' and 'str()' do? Use 'help' (or '?'). Don't spend too much time reading the docs. Which description do you find more helpful?
+
+class()
+R possesses a simple generic function mechanism which can be used for an object-oriented style of programming. Method dispatch takes place based on the class of the first argument to the generic function.
+str()
+Compactly display the internal structure of an R object, a diagnostic function and an alternative to summary (and to some extent, dput). Ideally, only one line for each ‘basic’ structure is displayed. It is especially well suited to compactly display the (abbreviated) contents of (possibly nested) lists. The idea is to give reasonable output for any R object. It calls args for (non-primitive) function objects.
+
+I think the Usage part is more useful!
 
 ### Make Your First Figure
 
